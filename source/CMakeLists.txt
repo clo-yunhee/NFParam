@@ -12,4 +12,6 @@ target_include_directories(
   PUBLIC
   ${NFPARAM_INCLUDE_DIRECTORY})
 
-add_subdirectory(test)
+if(BUILD_TESTING)
+    add_subdirectory(test)
+endif()

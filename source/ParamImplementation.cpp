@@ -137,6 +137,12 @@ float ParamImplementation::cumulativeValueForTimeRange(double start_time,
   return cumulative_value;
 }
 
+void ParamImplementation::pruneEventsPriorToTime(double time) {
+  std::lock_guard<std::mutex> events_mutex(_events_mutex);
+  auto prev_it = prevEvent(time);
+  _events.erase(_events.begin(), prev_it);
+}
+
 float ParamImplementation::defaultValue() const {
   return _default_value;
 }

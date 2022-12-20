@@ -61,6 +61,9 @@ class Param {
   virtual float cumulativeValueForTimeRange(double start_time,
                                             double end_time,
                                             double precision = 0.1) = 0;
+
+  // delete events prior to time
+  virtual void pruneEventsPriorToTime(double time) = 0;
 };
 
 std::shared_ptr<Param> createParam(float default_value,

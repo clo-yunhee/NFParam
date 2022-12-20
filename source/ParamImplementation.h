@@ -53,6 +53,8 @@ class ParamImplementation : public Param {
                                     double end_time,
                                     double precision = 0.1) override;
 
+  void pruneEventsPriorToTime(double time) override;
+
   // WAAParam
   float defaultValue() const override;
   float maxValue() const override;
